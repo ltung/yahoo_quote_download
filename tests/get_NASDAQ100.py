@@ -11,18 +11,13 @@ from yahoo_quote_download import yqd
 def load_quote(ticker):
     print('===', ticker, '===')
     print(yqd.load_yahoo_quote(ticker, '20150102', '20160104'))
-    # print(yqd.load_yahoo_quote(ticker, '20170515', '20170517', 'dividend'))
-    # print(yqd.load_yahoo_quote(ticker, '20170515', '20170517', 'split'))
 
 
-def test():
+def read():
     # Download quote for stocks
-    # load_quote('QCOM')
-    # load_quote('C')
-
-    # Download quote for index
+    # TODO: Read symbol from a text file, download data as csv
     load_quote('AAPL')
 
 
 if __name__ == '__main__':
-    test()
+    read()
