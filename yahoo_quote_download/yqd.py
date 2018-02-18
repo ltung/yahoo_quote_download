@@ -98,6 +98,7 @@ def load_yahoo_quote(ticker, begindate, enddate, info = 'quote'):
 		param['events'] = 'split'
 	param['crumb'] = _crumb
 	params = urllib.parse.urlencode(param)
+	# print(params)
 	url = 'https://query1.finance.yahoo.com/v7/finance/download/{}?{}'.format(ticker, params)
 	#print(url)
 	req = urllib.request.Request(url, headers=_headers)
@@ -106,5 +107,6 @@ def load_yahoo_quote(ticker, begindate, enddate, info = 'quote'):
 	# There is no need to enter the cookie here, as it is automatically handled by opener
 	f = urllib.request.urlopen(req)
 	alines = f.read().decode('utf-8')
-	#print(alines)
-	return alines.split('\n')
+	return alines
+	# print(alines)
+	# return alines.split('\n')

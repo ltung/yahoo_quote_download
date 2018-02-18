@@ -1,0 +1,6 @@
+.DS*
+*.egg-info
+*.csv
+*cache*
+.vscode
+env/
