@@ -1,22 +1,23 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sat May 20 18:58:59 2017
-
-@author: c0redumb
-"""
-
+import csv
 from yahoo_quote_download import yqd
 
 
-def load_quote(ticker):
-    print('===', ticker, '===')
-    print(yqd.load_yahoo_quote(ticker, '20150102', '20160104'))
+def write_csv(ticker):
+    f = open('./data/'+ticker+'.csv', 'w+')
+    print(yqd.load_yahoo_quote(ticker, '20150102', '20160104'), file=f)
+    f.close()
 
 
 def read():
     # Download quote for stocks
-    # TODO: Read symbol from a text file, download data as csv
-    load_quote('AAPL')
+    file = open('list.txt', 'r')
+    symbols = []
+    for line in file:
+        symbols.append(line[:-1])
+    for symbol in symbols:
+        print(symbol)
+        write_csv(symbol)
 
 
 if __name__ == '__main__':
