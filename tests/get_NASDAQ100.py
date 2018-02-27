@@ -11,7 +11,7 @@ def write_csv(ticker):
 
 def read():
     # Download quote for stocks
-    file = open('list.txt', 'r')
+    file = open('symbols.txt', 'r')
     symbols = []
     for line in file:
         symbols.append(line[:-1])
